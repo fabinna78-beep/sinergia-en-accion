@@ -655,3 +655,143 @@ document.addEventListener('DOMContentLoaded',()=>{
   decorate();
 });
 </script></body></html>
+<style>
+/* ===== Sinergia workshop experience v2 ===== */
+.workshop-modal{position:fixed;inset:0;z-index:80;display:none;background:rgba(5,30,36,.62);backdrop-filter:blur(9px);padding:24px;overflow:auto}
+.workshop-modal.open{display:flex;align-items:center;justify-content:center}
+.workshop-sheet{width:min(980px,100%);max-height:92vh;overflow:auto;background:#fbf8f2;color:#073e4b;border-radius:34px;box-shadow:0 30px 90px rgba(0,0,0,.28);position:relative}
+.workshop-close{position:sticky;top:18px;float:right;margin:18px 18px 0 0;width:42px;height:42px;border:0;border-radius:50%;background:#073e4b;color:white;font-size:26px;cursor:pointer;z-index:3}
+.workshop-hero{padding:48px 48px 30px;background:linear-gradient(145deg,#fff2c7,#e6f3ef 68%,#ffe0d8)}
+.workshop-kicker{font:900 11px Arial,sans-serif;letter-spacing:.18em;text-transform:uppercase}
+.workshop-hero h2{font:500 clamp(42px,6vw,72px)/.98 Georgia,serif;margin:14px 0}
+.workshop-hero p{font-size:18px;line-height:1.6;max-width:760px}
+.workshop-video{width:100%;aspect-ratio:16/9;background:#102f38;display:block;object-fit:cover}
+.workshop-body{padding:38px 48px 50px}
+.workshop-grid{display:grid;grid-template-columns:1.1fr .9fr;gap:28px}
+.workshop-block{padding:25px;border:1px solid rgba(7,62,75,.13);border-radius:24px;background:white}
+.workshop-block h3{font:500 28px Georgia,serif;margin:0 0 13px}
+.workshop-block p,.workshop-block li{line-height:1.58}
+.workshop-block ul{padding-left:20px}
+.workshop-module{display:grid;grid-template-columns:48px 1fr;gap:14px;padding:15px 0;border-top:1px solid rgba(7,62,75,.1)}
+.workshop-module b{width:38px;height:38px;border-radius:50%;display:grid;place-items:center;background:#ffc83e}
+.workshop-tools{display:flex;flex-wrap:wrap;gap:8px}
+.workshop-tool{padding:9px 12px;border-radius:999px;background:#e8f6f2;font-size:12px;font-weight:800}
+.workshop-purchase{margin-top:28px;padding:24px;border-radius:24px;background:#073e4b;color:white;display:flex;align-items:center;justify-content:space-between;gap:20px}
+.workshop-price{font:900 30px Arial,sans-serif;color:#ffc83e}
+.workshop-price small{display:block;color:rgba(255,255,255,.62);font-size:10px;letter-spacing:.08em;text-transform:uppercase;margin-top:4px}
+.workshop-buy{border:0;border-radius:999px;padding:15px 22px;background:#ffc83e;color:#073e4b;font-weight:900;cursor:pointer}
+.workshop-consult{display:inline-flex;border-radius:999px;padding:14px 20px;background:#ffc83e;color:#073e4b;font-weight:900}
+.course-detail{display:none!important}
+.course-actions{position:relative;z-index:4}
+.training .course{cursor:default}
+.training .course:after{display:none}
+@media(max-width:800px){
+ .workshop-modal{padding:10px}
+ .workshop-sheet{border-radius:24px}
+ .workshop-hero{padding:38px 24px 24px}
+ .workshop-body{padding:24px 20px 35px}
+ .workshop-grid{grid-template-columns:1fr}
+ .workshop-purchase{display:grid}
+ .workshop-buy,.workshop-consult{width:100%;justify-content:center;text-align:center}
+}
+</style>
+<script>
+document.addEventListener('DOMContentLoaded',()=>{
+ const WA='https://wa.me/5493516063053?text=';
+ const VIDEO='https://cdn.creativeclaw.co/u/9ee9f7f2/videos/e03bac82-2a55-4ad7-8b1e-90da8b957974.mp4';
+ const names=['Liderar sin hacerlo todo','Conversaciones que hacen avanzar','Del conflicto al acuerdo','Clientes que quieren volver'];
+ const data=[
+  {
+   kicker:'Experiencia destacada · 100% online',
+   title:'Liderar sin hacerlo todo',
+   lead:'Dejar de ser el cuello de botella de tu empresa. Aprendé a distribuir responsabilidad, construir autonomía y recuperar tiempo para liderar.',
+   video:true, price:true,
+   intro:'Un recorrido práctico para líderes que sienten que demasiadas decisiones, tareas y problemas terminan dependiendo de ellos. No se trata de hacer menos por hacer menos: se trata de dejar de concentrar lo que otros pueden aprender a asumir.',
+   modules:[
+    ['01','Cambiar de rol','Pasar de resolver todo a desarrollar capacidad en el equipo.'],
+    ['02','Qué delegar y qué no','Distinguir lo estratégico de lo operativo y decidir qué debe seguir dependiendo de vos.'],
+    ['03','Cómo delegar','Delegar con claridad, contexto, límites, recursos y criterios de éxito.'],
+    ['04','Autonomía sin abandono','Dar espacio para decidir sin desaparecer: seguimiento, acuerdos y aprendizaje.'],
+    ['05','Conversaciones de liderazgo','Pedidos, expectativas, feedback y límites que evitan volver a absorber el trabajo.'],
+    ['06','Recuperar tiempo para liderar','Revisar tu agenda y transformar tiempo operativo en tiempo de liderazgo y mejora.']
+   ],
+   tools:['Mapa de dependencia','Matriz de delegación','Preparador de conversaciones','Registro de errores y aprendizajes','Auditoría de agenda','Plan de acción de 30 días'],
+   includes:['6 módulos de aprendizaje','Microacciones de aplicación','Workbook práctico','Herramientas descargables','Plan de acción de 30 días'],
+   note:'Modalidad 100% online y autogestionada. No incluye intervención personalizada.'
+  },
+  {
+   kicker:'Taller · Próximamente',
+   title:'Conversaciones que hacen avanzar',
+   lead:'Hablar claro para pedir, acordar y construir responsabilidad.',
+   intro:'Un recorrido práctico para transformar conversaciones pendientes en acuerdos concretos y accionables.',
+   modules:[['01','Conversaciones que no resuelven','Detectar por qué hablamos mucho y avanzamos poco.'],['02','Pedidos claros','Pedir de forma concreta, con contexto y expectativa.'],['03','Feedback','Dar devoluciones que ayuden a mejorar sin atacar.'],['04','Conversaciones difíciles','Abordar lo pendiente antes de que se convierta en conflicto.'],['05','Acuerdos','Convertir conversaciones en compromisos observables.'],['06','Seguimiento','Sostener los acuerdos sin perseguir personas.']],
+   tools:['Modelos de pedidos','Guía de feedback','Acuerdos y compromisos','Plan de aplicación'],
+   note:'El contenido está en desarrollo. Consultá por WhatsApp para recibir novedades.'
+  },
+  {
+   kicker:'Taller · Próximamente',
+   title:'Del conflicto al acuerdo',
+   lead:'Gestionar diferencias sin romper vínculos ni paralizar al equipo.',
+   intro:'Un recorrido práctico para entender qué hay detrás de la tensión, conversar con claridad y construir acuerdos posibles.',
+   modules:[['01','Entender el conflicto','Diferenciar problema, tensión y conflicto.'],['02','Qué hay detrás de la tensión','Intereses, necesidades, percepciones y límites.'],['03','Cómo no escalar','Interrumpir patrones que agrandan el problema.'],['04','La conversación pendiente','Preparar y sostener una conversación difícil.'],['05','Construir acuerdos','Pasar de posiciones a compromisos concretos.'],['06','Sostenerlos','Seguimiento y aprendizaje para que el acuerdo dure.']],
+   tools:['Mapa de conflicto','Guía de conversación','Modelo de acuerdos','Plan para abordar un conflicto real'],
+   note:'El contenido está en desarrollo. Consultá por WhatsApp para recibir novedades.'
+  },
+  {
+   kicker:'Taller · Próximamente',
+   title:'Clientes que quieren volver',
+   lead:'Convertir una buena atención en una experiencia consistente.',
+   intro:'Un recorrido práctico para que la experiencia del cliente no dependa solamente de quién atienda.',
+   modules:[['01','Qué recuerda un cliente','Identificar qué construye confianza y qué deja una mala experiencia.'],['02','Viaje del cliente','Mirar la experiencia de punta a punta.'],['03','Puntos de fricción','Detectar momentos que generan esfuerzo, espera o confusión.'],['04','Atención consistente','Construir criterios compartidos para atender mejor.'],['05','Reclamos','Convertir un reclamo en información para mejorar.'],['06','Diseñar para volver','Crear experiencias que inviten a elegir nuevamente.']],
+   tools:['Mapa de experiencia','Detector de fricciones','Guía de atención y reclamos','Plan de mejora'],
+   note:'El contenido está en desarrollo. Consultá por WhatsApp para recibir novedades.'
+  }
+ ];
+ const modal=document.createElement('div'); modal.className='workshop-modal'; modal.setAttribute('aria-hidden','true');
+ modal.innerHTML='<div class="workshop-sheet"><button class="workshop-close" aria-label="Cerrar">×</button><div class="workshop-content"></div></div>';
+ document.body.appendChild(modal);
+ const content=modal.querySelector('.workshop-content');
+ const esc=s=>String(s).replace(/[&<>"]/g,m=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[m]));
+ function open(i){
+  const d=data[i];
+  const modules=d.modules.map(m=>'<div class="workshop-module"><b>'+m[0]+'</b><div><strong>'+esc(m[1])+'</strong><br><span>'+esc(m[2])+'</span></div></div>').join('');
+  const tools=d.tools.map(t=>'<span class="workshop-tool">'+esc(t)+'</span>').join('');
+  const includes=d.includes?'<div class="workshop-block"><h3>¿Qué incluye?</h3><ul>'+d.includes.map(x=>'<li>'+esc(x)+'</li>').join('')+'</ul></div>':'';
+  const purchase=d.price?'<div class="workshop-purchase"><div><div class="workshop-price">$59.900<small>precio de lanzamiento</small></div></div><button class="workshop-buy" id="modalBuy">Comprar taller →</button></div>':'<div class="workshop-purchase"><div><strong>Este taller todavía está en desarrollo.</strong><br><span style="opacity:.7">Podés consultarnos y te avisamos cuando esté disponible.</span></div><a class="workshop-consult" target="_blank" rel="noopener" href="'+WA+encodeURIComponent('Hola Sinergia en Acción, me interesa el taller “'+d.title+'” y quisiera conocer más.')+'">Consultar por WhatsApp →</a></div>';
+  content.innerHTML='<div class="workshop-hero"><div class="workshop-kicker">'+esc(d.kicker)+'</div><h2>'+esc(d.title)+'</h2><p>'+esc(d.lead)+'</p></div>'+(d.video?'<video class="workshop-video" controls playsinline preload="metadata" src="'+VIDEO+'"></video>':'')+'<div class="workshop-body"><div class="workshop-grid"><div><div class="workshop-block"><h3>¿De qué se trata?</h3><p>'+esc(d.intro)+'</p></div><div class="workshop-block" style="margin-top:18px"><h3>Los 6 módulos</h3>'+modules+'</div></div><div><div class="workshop-block"><h3>Herramientas de aplicación</h3><div class="workshop-tools">'+tools+'</div></div>'+includes+'<div class="workshop-block" style="margin-top:18px"><h3>Modalidad</h3><p>'+esc(d.note)+'</p></div></div></div>'+purchase+'</div>';
+  modal.classList.add('open');modal.setAttribute('aria-hidden','false');document.body.style.overflow='hidden';
+  const buy=content.querySelector('#modalBuy');
+  if(buy) buy.onclick=()=>{const add=[...document.querySelectorAll('.training .course')][0]?.querySelector('.course-action.primary');if(add){add.click();close()}};
+ }
+ function close(){modal.classList.remove('open');modal.setAttribute('aria-hidden','true');document.body.style.overflow=''}
+ modal.querySelector('.workshop-close').onclick=close;
+ modal.addEventListener('click',e=>{if(e.target===modal)close()});
+ document.addEventListener('keydown',e=>{if(e.key==='Escape')close()});
+ document.querySelectorAll('.training .course').forEach((card,i)=>{
+   card.querySelector('.course-price')?.classList.toggle('hidden-workshop-price',i!==0);
+   const price=card.querySelector('.course-price'); if(price&&i!==0) price.style.display='none';
+   const actions=card.querySelector('.course-actions');
+   if(actions){
+     const info=actions.querySelector('.course-action:not(.primary)');
+     const add=actions.querySelector('.course-action.primary');
+     if(info){
+       info.removeAttribute('target');info.removeAttribute('rel');info.href='#';
+       info.textContent='Quiero saber más';
+       info.onclick=e=>{e.preventDefault();e.stopPropagation();open(i)};
+     }
+     if(add){
+       add.onclick=e=>{e.stopPropagation(); if(i===0){const name=names[0]; if(!window.__sinergiaCartAdd){add.dispatchEvent(new MouseEvent('click',{bubbles:false}));} else window.__sinergiaCartAdd(name);} };
+       if(i!==0){add.textContent='Consultar por WhatsApp';add.classList.remove('primary');add.onclick=e=>{e.stopPropagation();window.open(WA+encodeURIComponent('Hola Sinergia en Acción, me interesa el taller “'+names[i]+'” y quisiera conocer más.'),'_blank','noopener')}}
+       else add.textContent='Comprar taller';
+     }
+   }
+   card.onclick=e=>{if(e.target.closest('.course-actions'))return};
+ });
+ // Make the existing cart add function available to the modal without changing its visual behavior.
+ const originalButtons=[...document.querySelectorAll('.training .course .course-action.primary')];
+ window.__sinergiaCartAdd=(name)=>{
+   const b=originalButtons[0];
+   if(b) b.click();
+ };
+});
+</script>
