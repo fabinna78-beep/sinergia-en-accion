@@ -554,4 +554,106 @@ document.addEventListener('DOMContentLoaded',()=>{
     card.appendChild(actions);
   });
 });
+</script><style>
+/* Sinergia workshop experience */
+.training .course{position:relative;overflow:hidden}
+.training .course h3{font-size:clamp(28px,3vw,38px);line-height:1.02;max-width:310px}
+.training .course-actions-live{display:flex;flex-wrap:wrap;gap:10px;margin-top:22px;position:relative;z-index:5}
+.training .course-action-live{display:inline-flex;align-items:center;justify-content:center;border:0;border-radius:999px;padding:12px 16px;font-weight:900;font-size:13px;cursor:pointer;background:#073e4b;color:#fff}
+.training .course-action-live.primary{background:#ffc83e;color:#073e4b}
+.training .course-action-live.secondary{background:rgba(255,255,255,.55);color:#073e4b;border:1px solid rgba(7,62,75,.16)}
+.training .course-price-live{display:inline-flex;align-items:baseline;gap:8px;margin-top:16px;font-weight:900;font-size:24px;color:#073e4b}
+.training .course-price-live small{font-size:10px;letter-spacing:.08em;text-transform:uppercase;opacity:.58}
+.training .course-soon{display:inline-flex;margin-top:16px;padding:7px 11px;border-radius:999px;background:rgba(7,62,75,.08);font-size:10px;font-weight:900;letter-spacing:.1em;text-transform:uppercase}
+.training .course:nth-child(1){transform:rotate(-1deg) translateY(4px)}
+.training .course:nth-child(2){transform:rotate(1.2deg) translateY(42px)}
+.training .course:nth-child(3){transform:rotate(-.8deg) translateY(12px)}
+.training .course:nth-child(4){transform:rotate(1.4deg) translateY(56px)}
+.training .course:hover{transform:translateY(-10px) rotate(0deg)!important}
+.orbit{transform-style:preserve-3d}
+.orbit:after{content:"";position:absolute;width:122px;height:92px;left:50%;top:47%;transform:translate(-50%,-50%) rotate(-12deg) rotateY(-22deg);border-radius:44% 56% 50% 50%;background:linear-gradient(145deg,rgba(255,255,255,.72),rgba(38,170,167,.5) 38%,rgba(7,62,75,.82));box-shadow:inset 13px 12px 22px rgba(255,255,255,.48),inset -14px -14px 24px rgba(7,62,75,.25),0 25px 42px rgba(7,62,75,.18);filter:drop-shadow(0 0 18px rgba(255,200,62,.16));animation:coreFloat 7s ease-in-out infinite;z-index:2}
+@keyframes coreFloat{0%,100%{transform:translate(-50%,-50%) rotate(-12deg) rotateY(-22deg) translateZ(0)}50%{transform:translate(-50%,-54%) rotate(5deg) rotateY(18deg) translateZ(22px) scale(1.06)}}
+.orbit .blob{transform-style:preserve-3d;backface-visibility:hidden}
+.hero h1{font-size:clamp(48px,6.1vw,82px);letter-spacing:-.025em}
+.hero .lead{font-size:clamp(16px,1.35vw,18px);max-width:650px}
+.workshop-modal-live{position:fixed;inset:0;z-index:90;display:none;background:rgba(5,30,36,.68);backdrop-filter:blur(10px);padding:22px;overflow:auto}
+.workshop-modal-live.open{display:flex;align-items:center;justify-content:center}
+.workshop-sheet-live{width:min(1000px,100%);max-height:94vh;overflow:auto;background:#fbf8f2;color:#073e4b;border-radius:34px;box-shadow:0 35px 100px rgba(0,0,0,.3);position:relative}
+.workshop-close-live{position:sticky;top:16px;float:right;margin:16px 16px 0 0;width:44px;height:44px;border:0;border-radius:50%;background:#073e4b;color:#fff;font-size:26px;cursor:pointer;z-index:4}
+.workshop-hero-live{padding:46px 48px 30px;background:linear-gradient(145deg,#fff2c7,#e6f3ef 68%,#ffe0d8)}
+.workshop-kicker-live{font:900 11px Arial,sans-serif;letter-spacing:.18em;text-transform:uppercase}
+.workshop-hero-live h2{font:500 clamp(40px,6vw,72px)/.98 Georgia,serif;margin:14px 0}
+.workshop-hero-live p{font-size:18px;line-height:1.6;max-width:760px}
+.workshop-video-live{width:100%;aspect-ratio:16/9;background:#102f38;display:block;object-fit:cover}
+.workshop-body-live{padding:38px 48px 50px}
+.workshop-grid-live{display:grid;grid-template-columns:1.1fr .9fr;gap:28px}
+.workshop-block-live{padding:25px;border:1px solid rgba(7,62,75,.13);border-radius:24px;background:#fff}
+.workshop-block-live h3{font:500 28px Georgia,serif;margin:0 0 13px}
+.workshop-block-live p,.workshop-block-live li{line-height:1.58}
+.workshop-block-live ul{padding-left:20px}
+.workshop-module-live{display:grid;grid-template-columns:48px 1fr;gap:14px;padding:15px 0;border-top:1px solid rgba(7,62,75,.1)}
+.workshop-module-live b{width:38px;height:38px;border-radius:50%;display:grid;place-items:center;background:#ffc83e}
+.workshop-tools-live{display:flex;flex-wrap:wrap;gap:8px}
+.workshop-tool-live{padding:9px 12px;border-radius:999px;background:#e8f6f2;font-size:12px;font-weight:800}
+.workshop-purchase-live{margin-top:28px;padding:24px;border-radius:24px;background:#073e4b;color:#fff;display:flex;align-items:center;justify-content:space-between;gap:20px}
+.workshop-price-live{font:900 30px Arial,sans-serif;color:#ffc83e}
+.workshop-price-live small{display:block;color:rgba(255,255,255,.62);font-size:10px;letter-spacing:.08em;text-transform:uppercase;margin-top:4px}
+.workshop-buy-live,.workshop-consult-live{border:0;border-radius:999px;padding:14px 20px;background:#ffc83e;color:#073e4b;font-weight:900;cursor:pointer;display:inline-flex;align-items:center;justify-content:center}
+@media(max-width:800px){
+ .training .course:nth-child(1),.training .course:nth-child(2),.training .course:nth-child(3),.training .course:nth-child(4){transform:none}
+ .training .course-actions-live{display:grid}
+ .training .course-action-live{width:100%}
+ .workshop-modal-live{padding:10px}
+ .workshop-sheet-live{border-radius:24px}
+ .workshop-hero-live{padding:38px 24px 24px}
+ .workshop-body-live{padding:24px 20px 35px}
+ .workshop-grid-live{grid-template-columns:1fr}
+ .workshop-purchase-live{display:grid}
+ .workshop-buy-live,.workshop-consult-live{width:100%;text-align:center}
+}
+</style>
+<script>
+document.addEventListener('DOMContentLoaded',()=>{
+ const WA='https://wa.me/5493516063053?text=';
+ const VIDEO='https://cdn.creativeclaw.co/u/9ee9f7f2/videos/e03bac82-2a55-4ad7-8b1e-90da8b957974.mp4';
+ const data=[
+  {kicker:'Experiencia destacada · 100% online',title:'Liderar sin hacerlo todo',lead:'Dejar de ser el cuello de botella de tu empresa. Aprendé a distribuir responsabilidad, construir autonomía y recuperar tiempo para liderar.',video:true,intro:'Un recorrido práctico para líderes que sienten que demasiadas decisiones, tareas y problemas terminan dependiendo de ellos. No se trata de hacer menos por hacer menos: se trata de dejar de concentrar lo que otros pueden aprender a asumir.',modules:[['01','Cambiar de rol','Pasar de resolver todo a desarrollar capacidad en el equipo.'],['02','Qué delegar y qué no','Distinguir lo estratégico de lo operativo y decidir qué debe seguir dependiendo de vos.'],['03','Cómo delegar','Delegar con claridad, contexto, límites, recursos y criterios de éxito.'],['04','Autonomía sin abandono','Dar espacio para decidir sin desaparecer: seguimiento, acuerdos y aprendizaje.'],['05','Conversaciones de liderazgo','Pedidos, expectativas, feedback y límites que evitan volver a absorber el trabajo.'],['06','Recuperar tiempo para liderar','Revisar tu agenda y transformar tiempo operativo en tiempo de liderazgo y mejora.']],tools:['Mapa de dependencia','Matriz de delegación','Preparador de conversaciones','Registro de errores y aprendizajes','Auditoría de agenda','Plan de acción de 30 días'],includes:['6 módulos de aprendizaje','Microacciones de aplicación','Workbook práctico','Herramientas descargables','Plan de acción de 30 días'],note:'Modalidad 100% online y autogestionada. No incluye intervención personalizada.',price:true},
+  {kicker:'Taller · Próximamente',title:'Conversaciones que hacen avanzar',lead:'Hablar claro para pedir, acordar y construir responsabilidad.',intro:'Un recorrido práctico para transformar conversaciones pendientes en acuerdos concretos y accionables.',modules:[['01','Conversaciones que no resuelven','Detectar por qué hablamos mucho y avanzamos poco.'],['02','Pedidos claros','Pedir de forma concreta, con contexto y expectativa.'],['03','Feedback','Dar devoluciones que ayuden a mejorar sin atacar.'],['04','Conversaciones difíciles','Abordar lo pendiente antes de que se convierta en conflicto.'],['05','Acuerdos','Convertir conversaciones en compromisos observables.'],['06','Seguimiento','Sostener los acuerdos sin perseguir personas.']],tools:['Modelos de pedidos','Guía de feedback','Acuerdos y compromisos','Plan de aplicación'],note:'El contenido está en desarrollo. Consultá por WhatsApp para recibir novedades.'},
+  {kicker:'Taller · Próximamente',title:'Del conflicto al acuerdo',lead:'Gestionar diferencias sin romper vínculos ni paralizar al equipo.',intro:'Un recorrido práctico para entender qué hay detrás de la tensión, conversar con claridad y construir acuerdos posibles.',modules:[['01','Entender el conflicto','Diferenciar problema, tensión y conflicto.'],['02','Qué hay detrás de la tensión','Intereses, necesidades, percepciones y límites.'],['03','Cómo no escalar','Interrumpir patrones que agrandan el problema.'],['04','La conversación pendiente','Preparar y sostener una conversación difícil.'],['05','Construir acuerdos','Pasar de posiciones a compromisos concretos.'],['06','Sostenerlos','Seguimiento y aprendizaje para que el acuerdo dure.']],tools:['Mapa de conflicto','Guía de conversación','Modelo de acuerdos','Plan para abordar un conflicto real'],note:'El contenido está en desarrollo. Consultá por WhatsApp para recibir novedades.'},
+  {kicker:'Taller · Próximamente',title:'Clientes que quieren volver',lead:'Convertir una buena atención en una experiencia consistente.',intro:'Un recorrido práctico para que la experiencia del cliente no dependa solamente de quién atienda.',modules:[['01','Qué recuerda un cliente','Identificar qué construye confianza y qué deja una mala experiencia.'],['02','Viaje del cliente','Mirar la experiencia de punta a punta.'],['03','Puntos de fricción','Detectar momentos que generan esfuerzo, espera o confusión.'],['04','Atención consistente','Construir criterios compartidos para atender mejor.'],['05','Reclamos','Convertir un reclamo en información para mejorar.'],['06','Diseñar para volver','Crear experiencias que inviten a elegir nuevamente.']],tools:['Mapa de experiencia','Detector de fricciones','Guía de atención y reclamos','Plan de mejora'],note:'El contenido está en desarrollo. Consultá por WhatsApp para recibir novedades.'}
+ ];
+ const modal=document.createElement('div');modal.className='workshop-modal-live';modal.setAttribute('aria-hidden','true');
+ modal.innerHTML='<div class="workshop-sheet-live"><button class="workshop-close-live" aria-label="Cerrar">×</button><div class="workshop-content-live"></div></div>';
+ document.body.appendChild(modal);
+ const contentBox=modal.querySelector('.workshop-content-live');
+ const esc=s=>String(s).replace(/[&<>"]/g,m=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[m]));
+ function open(i){
+  const d=data[i];
+  const modules=d.modules.map(m=>'<div class="workshop-module-live"><b>'+m[0]+'</b><div><strong>'+esc(m[1])+'</strong><br><span>'+esc(m[2])+'</span></div></div>').join('');
+  const tools=d.tools.map(t=>'<span class="workshop-tool-live">'+esc(t)+'</span>').join('');
+  const includes=d.includes?'<div class="workshop-block-live"><h3>¿Qué incluye?</h3><ul>'+d.includes.map(x=>'<li>'+esc(x)+'</li>').join('')+'</ul></div>':'';
+  const purchase=d.price?'<div class="workshop-purchase-live"><div><div class="workshop-price-live">$59.900<small>precio de lanzamiento</small></div></div><a class="workshop-buy-live" target="_blank" rel="noopener" href="'+WA+encodeURIComponent('Hola Sinergia en Acción, quiero comprar el taller “Liderar sin hacerlo todo”. Quiero recibir información para inscribirme.')+'">Quiero comprar →</a></div>':'<div class="workshop-purchase-live"><div><strong>Disponible próximamente</strong><br><span style="opacity:.72">El contenido está en desarrollo. Si querés recibir novedades cuando esté disponible, escribinos.</span></div><a class="workshop-consult-live" target="_blank" rel="noopener" href="'+WA+encodeURIComponent('Hola Sinergia en Acción, me interesa el taller “'+d.title+'” y quiero recibir novedades cuando esté disponible.')+'">Consultar por WhatsApp →</a></div>';
+  contentBox.innerHTML='<div class="workshop-hero-live"><div class="workshop-kicker-live">'+esc(d.kicker)+'</div><h2>'+esc(d.title)+'</h2><p>'+esc(d.lead)+'</p></div>'+(d.video?'<video class="workshop-video-live" controls playsinline preload="metadata" src="'+VIDEO+'"></video>':'')+'<div class="workshop-body-live"><div class="workshop-grid-live"><div><div class="workshop-block-live"><h3>¿De qué se trata?</h3><p>'+esc(d.intro)+'</p></div><div class="workshop-block-live" style="margin-top:18px"><h3>Los 6 módulos</h3>'+modules+'</div></div><div><div class="workshop-block-live"><h3>Herramientas de aplicación</h3><div class="workshop-tools-live">'+tools+'</div></div>'+includes+'<div class="workshop-block-live" style="margin-top:18px"><h3>Modalidad</h3><p>'+esc(d.note)+'</p></div></div></div>'+purchase+'</div>';
+  modal.classList.add('open');modal.setAttribute('aria-hidden','false');document.body.style.overflow='hidden';
+ }
+ function close(){modal.classList.remove('open');modal.setAttribute('aria-hidden','true');document.body.style.overflow=''}
+ modal.querySelector('.workshop-close-live').onclick=close;
+ modal.addEventListener('click',e=>{if(e.target===modal)close()});
+ document.addEventListener('keydown',e=>{if(e.key==='Escape')close()});
+ document.querySelectorAll('.training .course').forEach((card,i)=>{
+   const old=card.querySelector('.course-actions');if(old)old.remove();
+   card.querySelectorAll('.course-price,.course-price-live,.course-soon').forEach(x=>x.remove());
+   const actions=document.createElement('div');actions.className='course-actions-live';
+   const info=document.createElement('button');info.type='button';info.className='course-action-live secondary';info.textContent='Ver experiencia →';info.onclick=e=>{e.stopPropagation();open(i)};
+   const cta=document.createElement(i===0?'a':'button');cta.className='course-action-live primary';
+   if(i===0){
+     cta.textContent='Quiero comprar →';cta.target='_blank';cta.rel='noopener';cta.href=WA+encodeURIComponent('Hola Sinergia en Acción, quiero comprar el taller “Liderar sin hacerlo todo”. Quiero recibir información para inscribirme.');
+     const price=document.createElement('div');price.className='course-price-live';price.innerHTML='$59.900 <small>precio lanzamiento</small>';card.appendChild(price);
+   }else{
+     cta.type='button';cta.textContent='Próximamente';cta.onclick=e=>{e.stopPropagation();open(i)};
+     const soon=document.createElement('div');soon.className='course-soon';soon.textContent='Disponible próximamente';card.appendChild(soon);
+   }
+   actions.append(info,cta);card.appendChild(actions);
+ });
+});
 </script></body></html>
