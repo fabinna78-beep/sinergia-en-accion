@@ -795,3 +795,25 @@ document.addEventListener('DOMContentLoaded',()=>{
  };
 });
 </script>
+<script>
+document.addEventListener('DOMContentLoaded',()=>{
+ const first=[...document.querySelectorAll('.training .course')][0];
+ if(!first)return;
+ const buy=first.querySelector('.course-action.primary');
+ const trigger=document.querySelector('.cart-trigger');
+ const panel=document.querySelector('.cart-panel');
+ if(!buy||!trigger||!panel)return;
+ const openCart=()=>{
+   const items=panel.querySelector('.cart-items'),count=trigger.querySelector('.cart-count'),total=panel.querySelector('.cart-total'),note=panel.querySelector('.cart-note'),wa=panel.querySelector('.cart-wa');
+   count.textContent='1';
+   items.innerHTML='<div class="cart-item"><div><b>Liderar sin hacerlo todo</b><small>Formación Sinergia en Acción</small></div><span class="cart-price">$59.900</span></div>';
+   total.innerHTML='Total <strong>$59.900</strong><small>Precio de lanzamiento.</small>';
+   note.innerHTML='Taller 100% online y autogestionado. La confirmación del pago y acceso todavía se realiza por contacto directo mientras terminamos la conexión con Mercado Pago.';
+   wa.style.display='block';wa.textContent='Continuar por WhatsApp →';wa.href='https://wa.me/5493516063053?text='+encodeURIComponent('Hola Sinergia en Acción, quiero comprar el taller “Liderar sin hacerlo todo” por $59.900. Quiero continuar con la inscripción.');
+   panel.classList.add('open');
+ };
+ buy.onclick=e=>{e.preventDefault();e.stopPropagation();openCart()};
+ const modalBuy=document.getElementById('modalBuy');
+ if(modalBuy) modalBuy.onclick=e=>{e.preventDefault();e.stopPropagation();openCart();document.querySelector('.workshop-modal')?.classList.remove('open');document.body.style.overflow=''};
+});
+</script>
